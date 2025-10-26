@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zinzino Seminar: How to Grow Your Business from 0 to a Stable Diamond</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff; /* Zinzino blue */
+            --secondary-color: #28a745; /* Green for success */
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+            --text-color: #495057;
+            --border-radius: 8px;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--primary-color);
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2em;
+            color: var(--dark-color);
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .agenda {
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .agenda-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed #e9ecef;
+        }
+
+        .agenda-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .agenda-time {
+            flex: 0 0 140px; /* Fixed width for time */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.1em;
+            padding-right: 20px;
+            text-align: right;
+            position: relative;
+        }
+
+        .agenda-time span {
+            display: block;
+            font-size: 0.9em;
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        .agenda-details {
+            flex-grow: 1;
+            padding-left: 20px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .agenda-details h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4em;
+            color: var(--dark-color);
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .agenda-details p {
+            margin-top: 5px;
+            color: var(--text-color);
+        }
+
+        /* Highlight for the break */
+        .agenda-item.break .agenda-time,
+        .agenda-item.break .agenda-details h3 {
+            color: #dc3545; /* Red for emphasis */
+        }
+        .agenda-item.break .agenda-details {
+            border-left-color: #dc3545;
+        }
+
+        /* Highlight for new Power Sessions */
+        .agenda-item.speaker .agenda-time,
+        .agenda-item.speaker .agenda-details h3 {
+            color: #ffc107; /* Yellow/Gold for Diamond level */
+        }
+        .agenda-item.speaker .agenda-details {
+            border-left-color: #ffc107;
+        }
+
+
+        .house-rules {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 5px solid var(--primary-color);
+            margin-top: 60px;
+        }
+
+        .house-rules h2 {
+            color: white;
+            margin-bottom: 25px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .house-rules ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .house-rules li {
+            margin: 0 25px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .house-rules li span {
+            margin-right: 10px;
+            font-size: 1.5em; /* Larger emoji */
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background-color: var(--text-color);
+            color: var(--light-color);
+            font-size: 0.9em;
+            margin-top: 40px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .section-title {
+                font-size: 1.8em;
+                margin: 40px 0 30px;
+            }
+            .agenda-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .agenda-time {
+                text-align: left;
+                padding-right: 0;
+                margin-bottom: 10px;
+                flex: none;
+                width: auto;
+            }
+            .agenda-details {
+                padding-left: 0;
+                border-left: none;
+                padding-top: 15px;
+                border-top: 3px solid var(--secondary-color);
+            }
+            .house-rules li {
+                margin: 0 15px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Zinzino Seminar: How to Grow Your Business from 0🤪 to a Stable Diamond💎</h1>
+            <p>Unlock Your Full Potential – Strategies for Hyper-Growth and Sustainable Success</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Event Agenda</h2>
+
+        <div class="agenda">
+            <div class="agenda-item">
+                <div class="agenda-time">09:30 - 10:10 <span>(40 min)</span></div>
+                <div class="agenda-details">
+                    <h3>Welcome, Business Opportunity Presentation</h3>
+                    <p>An introduction to the Zinzino business model and the unique opportunities it presents for financial growth and independence.</p>
+                </div>
+            </div>
+
+            <div class="agenda-item">
+                <div class="agenda-time">10:10 - 11:40 <span>(90 min)</span></div>
+                <div class="agenda-details">
+                    <h3>Keynote - Mr. Jan Sztruhar, President (Part 1): The Foundation of Success</h3>
+                    <p>Jan will cover foundational sales strategies, methodologies for building a customer base, and a systematic approach to starting from scratch, supported by real-life examples.</p>
+                </div>
+            </div>
+
+            <div class="agenda-item">
+                <div class="agenda-time">11:40 - 12:20 <span>(40 min)</span></div>
+                <div class="agenda-details">
+                    <h3>Coffee & Networking Break</h3>
+                    <p>An opportunity for attendees to network, discuss the morning's topics, and recharge.</p>
+                </div>
+            </div>
+
+            <div class="agenda-item">
+                <div class="agenda-time">12:20 - 12:40 <span>(20 min)</span></div>
+                <div class="agenda-details">
+                    <h3>Interactive Q&A Session</h3>
+                    <p>A dedicated session for attendees to ask the keynote speaker specific questions about their own business challenges and the strategies discussed.</p>
+                </div>
+            </div>
+
+            <div class="agenda-item">
+                <div class="agenda-time">12:40 - 14:10 <span>(90 min)</span></div>
+                <div class="agenda-details">
+                    <h3>Keynote Mr. Jan Sztruhar (Part 2): Scaling to the Diamond Level</h3>
+                    <p>The speaker will focus on advanced techniques for scaling the business, creating a sustainable system, and achieving the target monthly income of €4,000 with practical case studies.</p>
+                </div>
+            </div>
+
+            <div class="agenda-item break">
+                <div class="agenda-time">14:10 - 14:25 <span>(15 min)</span></div>
+                <div class="agenda-details">
+                    <h3>Power Break ☕</h3>
+                    <p>A quick essential break to recharge before the afternoon's high-impact sessions.</p>
+                </div>
+            </div>
+
+            <div class="agenda-item speaker">
+                <div class="agenda-time">14:25 - 14:45 <span>(20 min)</span></div>
+                <div class="agenda-details">
+                    <h3>Mrs. Tatjana Davić: The Express Start System</h3>
+                    <p>It is not a miracle that this lady has achieved the high rank of Director. She will talk about the tested and proven system created by Zinzino called **Express Start**, designed to launch your business with maximum impact.</p>
+                </div>
+            </div>
+
+            <div class="agenda-item speaker">
+                <div class="agenda-time">14:45 - 15:10 <span>(25 min)</span></div>
+                <div class="agenda-details">
+                    <h3>Mr. Sergiu Dan Barbus: Mindset, Belief, and Excitement</h3>
+                    <p>Knowledge without belief and excitement is empty. Mr. Barbus delivers a powerful talk on generating the **inner drive** and conviction needed to turn learned knowledge into massive action and success.</p>
+                </div>
+            </div>
+
+            <div class="agenda-item">
+                <div class="agenda-time">15:10 - 15:40 <span>(30 min)</span></div>
+                <div class="agenda-details">
+                    <h3>Panel Discussion: Overcoming Common Hurdles</h3>
+                    <p>A panel of experienced direct sellers discusses common challenges and how to overcome them on the journey to stability and success.</p>
+                </div>
+            </div>
+
+            <div class="agenda-item">
+                <div class="agenda-time">15:40 - 16:00 <span>(20 min)</span></div>
+                <div class="agenda-details">
+                    <h3>Closing Remarks & Final Motivation</h3>
+                    <p>A summary of the day's key takeaways and a final motivational message to inspire attendees to take immediate action. **(Seminar Concludes)**</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="house-rules">
+        <div class="container">
+            <h2>House Rules</h2>
+            <ul>
+                <li><span>😀</span> **Bring a Smile**</li>
+                <li><span>🚫</span> **No negativity**</li>
+                <li><span>📔</span> **Come Prepared** <span>🖊️</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Attollo International Business Events. All rights reserved.</p>
+            <p>For more information, contact us at hello@attollointernational.com</p>
+        </div>
+    </footer>
+</body>
+</html>
